@@ -1,0 +1,14 @@
+{
+  "private": true,
+  "devDependencies": {
+    "jspm": "^0.16.12"
+  },
+  "jspm": {
+    "dependencies": {
+      "pixi": "npm:pixi@^0.3.1"
+    },
+    "devDependencies": {
+      "typescript": "npm:typescript@^1.6.2"
+    }
+  }
+}
