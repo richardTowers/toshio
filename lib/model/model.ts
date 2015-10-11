@@ -6,15 +6,15 @@ export type Coord = { x: number, y: number };
 export interface ICell { coord: Coord, state: string };
 export type IBoard = ICell[][];
 
-function updateBoard (board: IBoard, cell: Coord) {
-	const toggle = state => state === 'O' ? 'X' : 'O';
-	const createBoard = fn => times(x => times(y => fn({ x, y }), 16), 16);
-	return createBoard(coord => {
-		const cellWasClicked = cell && cell.x === coord.x && cell.y === coord.y;
-		const prevState = board ? board[coord.x][coord.y].state : 'O';
-		const state = cellWasClicked ? toggle(prevState) : prevState;
+function updateBoard (board: IBoard, cell: Coord): IBoard {
+	const toggle = (state: string) => state === 'O' ? 'X' : 'O';
+	const createCell = (coord: Coord) => {
+		const cellWasClicked: boolean = cell && cell.x === coord.x && cell.y === coord.y;
+		const prevState: string = board ? board[coord.x][coord.y].state : 'O';
+		const state: string = cellWasClicked ? toggle(prevState) : prevState;
 		return { coord, state };
-	});
+	};
+	return times(x => times(y => createCell({ x, y }), 16), 16);
 }
 
 function model(actions: Intent): Rx.Observable<IBoard> {
