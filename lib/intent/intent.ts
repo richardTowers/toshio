@@ -1,15 +1,19 @@
 import { Rx } from 'cycle-core';
 import { DOMInputDriver } from 'cycle-dom';
+import { Coord } from '../model/model';
 
 export interface Intent {
-	clickIncrement$: Rx.Observable<number>;
-	clickDecrement$: Rx.Observable<number>;
+	clickCell$: Rx.Observable<Coord>
 }
 
 function intent(DOM: DOMInputDriver): Intent {
 	return {
-		clickIncrement$: DOM.select('.increment').events('click').map(() => 1),
-		clickDecrement$: DOM.select('.decrement').events('click').map(() => -1)
+		clickCell$: DOM.select('td').events('click')
+			.map(x => x.srcElement)
+			.map(x => ({
+				x: +x.getAttribute('data-x'),
+				y: +x.getAttribute('data-y')
+			}))
 	};
 }
 export default intent;
