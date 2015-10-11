@@ -1,7 +1,9 @@
 {
   "private": true,
   "devDependencies": {
-    "jspm": "^0.16.12"
+    "jspm": "^0.16.12",
+    "tsd": "^0.6.5",
+    "typescript": "^1.6.2"
   },
   "jspm": {
     "dependencies": {

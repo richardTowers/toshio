@@ -1,12 +1,23 @@
-import Cycle from 'cycle-core';
-import { makeDOMDriver } from 'cycle-dom';
+/// <reference path="../typings.d.ts" />
+
+import { run, DriversDefinition } from 'cycle-core';
+import { makeDOMDriver, DOMInputDriver, DOMOutputDriver } from 'cycle-dom';
 
 import model from './model/model';
 import view from './view/view';
 import intent from './intent/intent';
 
-function main ({DOM}) {
-	return { DOM: view(model(intent(DOM))) };
+interface InputDrivers {
+	DOM: DOMInputDriver
+}
+interface OutputDrivers {
+	DOM: DOMOutputDriver
 }
 
-Cycle.run(main, { DOM: makeDOMDriver('#app') });
+function main(drivers: InputDrivers): OutputDrivers {
+	return {
+		DOM: view(model(intent(drivers.DOM)))
+	};
+}
+
+run<InputDrivers, OutputDrivers>(main, { DOM: makeDOMDriver('#app') });

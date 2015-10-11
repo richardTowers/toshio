@@ -1,5 +1,9 @@
 {
 	"compilerOptions": {
 		"module": "system"
-	}
+	},
+	"exclude": [
+        "node_modules",
+        "jspm_packages"
+    ]
 }
