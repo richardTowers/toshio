@@ -18,7 +18,6 @@ System.config({
   map: {
     "cycle-core": "npm:@cycle/core@3.1.0",
     "cycle-dom": "npm:@cycle/dom@5.3.1",
-    "pixi": "npm:pixi@0.3.1",
     "typescript": "npm:typescript@1.6.2",
     "github:jspm/nodelibs-assert@0.1.0": {
       "assert": "npm:assert@1.3.0"
