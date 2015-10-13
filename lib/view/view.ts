@@ -12,7 +12,8 @@ function view(state$: Rx.Observable<IModel>): Rx.Observable<VirtualDOM.VTree> {
 							'data-x': '' + cell.coord.x,
 							'data-y': '' + cell.coord.y
 						}
-					}, cell.coord.x === model.activeCol ? 'Ø' : cell.state))
+					},
+					(cell.state === 'O' && cell.coord.x === model.activeCol) ? 'Ø' : cell.state))
 				))
 			)
 		])
