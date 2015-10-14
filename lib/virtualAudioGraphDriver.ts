@@ -3,7 +3,6 @@ import createVirtualAudioGraph, { INodeParameter } from 'virtual-audio-graph';
 function makeAudioGraphDriver() {
 	const audioContext = new AudioContext();
 	const virtualAudioGraph = createVirtualAudioGraph({ audioContext, output: audioContext.destination });
-	const {currentTime} = virtualAudioGraph;
 
 	return audioGraphDriver;
 
