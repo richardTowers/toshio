@@ -39,3 +39,21 @@ declare module "cycle-dom" {
 	export function makeDOMDriver(container: string | Element, customElements?: any): DOMDriverFunction;
 
 }
+
+declare module "virtual-audio-graph" {
+
+	export type INodeParameter = (string | number | {})[];
+
+	export interface IAudioGraphParameters {
+		audioContext: AudioContext;
+		output?: AudioDestinationNode;
+	}
+
+	export interface IAudioGraph {
+		currentTime: number;
+		update: (nodeParameters: INodeParameter[]) => void;
+	}
+
+	function createVirtualAudioGraph(parameters: IAudioGraphParameters): IAudioGraph;
+	export default createVirtualAudioGraph;
+}

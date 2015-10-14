@@ -19,6 +19,7 @@ System.config({
     "cycle-core": "npm:@cycle/core@3.1.0",
     "cycle-dom": "npm:@cycle/dom@5.3.1",
     "typescript": "npm:typescript@1.6.2",
+    "virtual-audio-graph": "npm:virtual-audio-graph@0.15.1",
     "github:jspm/nodelibs-assert@0.1.0": {
       "assert": "npm:assert@1.3.0"
     },
@@ -140,6 +141,11 @@ System.config({
       "param-case": "npm:param-case@1.1.1",
       "virtual-dom": "npm:virtual-dom@2.1.1",
       "xtend": "npm:xtend@4.0.0"
+    },
+    "npm:virtual-audio-graph@0.15.1": {
+      "capitalize": "npm:capitalize@1.0.0",
+      "deep-equal": "npm:deep-equal@1.0.1",
+      "process": "github:jspm/nodelibs-process@0.1.2"
     },
     "npm:virtual-dom@2.1.1": {
       "browser-split": "npm:browser-split@0.0.1",

@@ -5,3 +5,7 @@ export function times<T>(fn: (id?: number) => T, n: number) : T[] {
 	}
 	return result;
 }
+
+export function flatten<T, U>(array: T[], fn: (item: T) => U[]): U[] {
+	return array.reduce<U[]>((acc, item) => acc.concat(fn(item)), []);
+}
