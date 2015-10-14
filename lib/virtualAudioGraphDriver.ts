@@ -1,3 +1,4 @@
+import { Rx } from 'cycle-core';
 import createVirtualAudioGraph, { INodeParameter } from 'virtual-audio-graph';
 
 function makeAudioGraphDriver() {
